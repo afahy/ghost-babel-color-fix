@@ -84,7 +84,11 @@ One skin pixel at `(48, 44)` uses the darker skin shade to preserve that separat
 [TECHNICAL.md](TECHNICAL.md) describes the data changes.
 [VALIDATION.md](VALIDATION.md) records the current test status.
 Physical Game Boy Color hardware has not been tested.
-Compatibility with other patches has not been tested.
+
+Experimental ROMs containing both the APC and Campbell corrections passed the checks in [COMBINED_VALIDATION.md](COMBINED_VALIDATION.md).
+The distributed standalone patch files remain unchanged and require clean source ROMs.
+The standalone BPS patches reject a ROM containing the other correction.
+Other patch combinations have not been tested.
 
 The [MIT license](../LICENSE) covers the patch tools and original documentation.
 It grants no rights to the original game or its graphics.
