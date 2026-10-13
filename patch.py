@@ -23,10 +23,10 @@ def hashes(data):
     }
 
 
-def load_source(path):
+def load_source(path, manifest_dir=ROOT):
     data = path.read_bytes()
     actual = hashes(data)
-    for manifest_path in sorted(ROOT.glob("changes*.json")):
+    for manifest_path in sorted(manifest_dir.glob("changes*.json")):
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         if actual == manifest["source"]:
             return data, manifest
@@ -119,6 +119,12 @@ def make_ips(source, target):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--fix",
+        choices=("apc", "campbell"),
+        default="apc",
+        help="Select the color correction. The default is apc.",
+    )
     commands = parser.add_subparsers(dest="command", required=True)
     verify = commands.add_parser("verify", help="Check the source ROM hashes.")
     verify.add_argument("rom", type=Path)
@@ -127,9 +133,10 @@ def main():
     apply.add_argument("output", type=Path)
     build = commands.add_parser("build", help="Rebuild BPS and IPS patch files.")
     build.add_argument("rom", type=Path)
-    build.add_argument("--output-dir", type=Path, default=ROOT / "patches")
+    build.add_argument("--output-dir", type=Path)
     args = parser.parse_args()
-    source, manifest = load_source(args.rom)
+    manifest_dir = ROOT if args.fix == "apc" else ROOT / "campbell"
+    source, manifest = load_source(args.rom, manifest_dir)
     if args.command == "verify":
         print(f"Source ROM verified: {manifest.get('region', 'USA')}.")
         print(json.dumps(hashes(source), indent=2))
@@ -143,10 +150,11 @@ def main():
         print(f"Patched ROM: {args.output}")
         print(f"SHA-256: {hashes(target)['sha256']}")
         return
-    args.output_dir.mkdir(parents=True, exist_ok=True)
+    output_dir = args.output_dir or manifest_dir / "patches"
+    output_dir.mkdir(parents=True, exist_ok=True)
     patch_name = manifest.get("patch_name", PATCH_NAME)
     for extension, maker in (("bps", make_bps), ("ips", make_ips)):
-        path = args.output_dir / f"{patch_name}.{extension}"
+        path = output_dir / f"{patch_name}.{extension}"
         data = maker(source, target)
         path.write_bytes(data)
         print(f"{path.name}: {len(data)} bytes; SHA-256 {hashes(data)['sha256']}")

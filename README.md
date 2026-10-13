@@ -1,5 +1,8 @@
 # Metal Gear Solid Ghost Babel APC Color Fix
 
+This branch also contains an unreleased [Campbell portrait color correction](campbell/README.md).
+It is a separate experimental patch for the opening briefing.
+
 This patch corrects the colors of the two armored personnel carriers in Stage 2’s yard outside Galuade fortress.
 It is a standalone color correction patch for *Metal Gear Solid* on Game Boy Color, also known as *Metal Gear: Ghost Babel*.
 The patch corrects the front corners and lower left corners.
