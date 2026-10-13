@@ -1,0 +1,2 @@
+bd1c2dc5379d03a6eb128fbb95b332f1b6d11a221e7c43cd0f58a80fb895ab06  ghost-babel-tank-color-fix-v1.0.bps
+6f8b6fc8c5f557c4060da25b284efef1835b63677d67cbcef4914ed68b933d88  ghost-babel-tank-color-fix-v1.0.ips

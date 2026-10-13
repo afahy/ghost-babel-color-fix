@@ -1,0 +1,10 @@
+# Local ROM files and emulator state
+*.gb
+*.gbc
+*.sav
+*.ram
+*.state
+*.state.*
+*.rtc
+__pycache__/
+local/
