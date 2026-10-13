@@ -1,4 +1,8 @@
-# Technical notes
+# APC correction: technical notes
+
+These notes describe the released APC correction.
+[Campbell's technical notes](campbell/TECHNICAL.md) describe the experimental portrait correction.
+[Combined validation](campbell/COMBINED_VALIDATION.md) describes ROMs containing both corrections.
 
 Version 1.1 changes background data for both APCs in area `02`, room `04`.
 Each regional manifest identifies its clean source ROM.

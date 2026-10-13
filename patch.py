@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Apply or rebuild the isolated Ghost Babel APC color patch."""
+"""Apply or rebuild Ghost Babel color correction patches."""
 
 import argparse
 import hashlib
