@@ -7,4 +7,6 @@
 *.state.*
 *.rtc
 __pycache__/
+.venv/
+.ruff_cache/
 local/

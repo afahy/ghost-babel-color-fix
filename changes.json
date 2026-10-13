@@ -1,7 +1,9 @@
 {
   "schema": 1,
-  "name": "Ghost Babel tank color fix",
-  "version": "1.0",
+  "name": "Ghost Babel APC color fix",
+  "version": "1.1",
+  "region": "USA",
+  "patch_name": "ghost-babel-apc-color-fix-us-v1.1",
   "source_filename": "Metal Gear Solid (USA).gbc",
   "source": {
     "size": 2097152,
@@ -28,7 +30,7 @@
     "expected_changed_pixels": 384,
     "established_fix_pixels": 378,
     "additional_shadow_pixels": 6,
-    "shadow_change": "Three brown pixels per tank become dark green.",
+    "shadow_change": "Three brown pixels per APC become dark green.",
     "tileset_copy": "41:5BA1 to 41:7540; only room 02/04 uses the copy.",
     "tile_index_remap": "VBK0 tile 1E: color index 1 becomes color index 3.",
     "priority": "Color index 0 and metatile priority bits stay unchanged.",
@@ -42,7 +44,7 @@
       "after": "0fe5"
     },
     {
-      "name": "Room 02/04 palette 5: tank greens",
+      "name": "Room 02/04 palette 5: APC greens",
       "offset": "011d2c",
       "before": "b117ab0e8500",
       "after": "2d2fe51dc104"
@@ -54,19 +56,19 @@
       "after": "4075"
     },
     {
-      "name": "Tank front left attributes",
+      "name": "APC front left attributes",
       "offset": "0c547f",
       "before": "0c0c",
       "after": "0d0d"
     },
     {
-      "name": "Tank front right attribute",
+      "name": "APC front right attribute",
       "offset": "0c5498",
       "before": "0c",
       "after": "0d"
     },
     {
-      "name": "Tank lower left attribute",
+      "name": "APC lower left attribute",
       "offset": "0c54bb",
       "before": "02",
       "after": "05"
@@ -78,7 +80,7 @@
       "after": "00080b0bfffcf2fe7ce4e43c9e7efefe27ff6c9cdfbfd12fdb27da27ee1fef0b27001de61defef00ef000600e900ef17e8f80704fb0b30012100ce00ef11eeee1104fbf810d83037d8f810f8101ef0f118f8107dbbfdfbdfffbdf3b5fbfff31dffffffbafdbdfffbf7b6ffbaffbff1feffffff00100c10e310001000102110ce0b85012010cf0b8501e610091000103fd0fff8dfb7bfd05fb0fff33fdc5fb09f71ff7fdfbfd63fd23ff7fb9e7d9b7dff0bfff18000ff00e00070003f00a0dfc0bf0bd00840bf609f00ff609f6a957b8400ff7f7f00ff0bf004a55a000b7d00ff00ff05fa01ff05fbbd43010bfd030b11100b161120ff2f0b101900ffff1f000e0007000300010bfff4ff40bf40bf0b4010659a00ff7f0bfe01bf009f009f00900b59110bf10500f80b6911030305050b70180b60160bf104fc00fa00f90b6713ff0041ff41ff7dff7dff45ff7dff0b0c10bf404ff7758a0afdfdff3fff00ff80ffffff0b721b0fffff55afad5757ffffff07ff07ffe1ffc1ff717f3c3f1f1f0f0bea1121ff31ffeaff47ff28ffd70b1611010b002b14ff0c0b14110b151432ff02ff02fff9ff07ff0b7c00ffff300b0f12fff8ff080f0b3d11ffffc9ffc981ffffff3e7f0b4a20fb035501ab0b5120014501a901ffff070405040202030202020b0a2414ff08fff3fffcff070b181320ff1f0b15270b89267bff7b0bad100b9f21b7fff7ff8fff87ff87ffe303e505e303d505f3037505fb035d053f201f100bc2200f080bc82005040b42100bd024e0ffe0fff10ff1ff09ffe5fff3fff9fffdfffd0b131104fffc0b8926807f8f709f67bf4fff9f0b9f21ff800b10307f400b16303f203f20f70ff30ff10f01ff09fffd0f0b20300bf1020b101300ff001fe0bfc0ff80708f609f4fb00b403100f800fc00fe0bf0050bf00a0b8118629d0b1012c00060003000ff000c000600ff00d9f7ff0b2b310b2434f00b39330b34349beffff0ffe0ff0b433550fa50f50bc03240ff5fff50f004fe04fd02fe06ff02fe05ff03ff05ff3fa03f605fe07f405fe0bfc0dfa0bfc08efe19ffbdffeefec7fffcfcececc0c0e61df63fd63fde67fb67f977b977fe1d0ff050ff5fff55fa5af50b16420b3d2200aa00550b2642015701ab0b3043fffdff01030b3d2208aa085d0b464240d540ea0b50420b4c1040c0aa7d55ab0bfc0055bbaa5555abaaffaafd0b6243aaaad555aaaa0b111100fffc03030b1411f00b111080f08ff6899bed9bed9bef9bef000f05fff5ff05af055f0ba6420bd000a1dec1bea1dec3bca3dcc3bc0bc6350bc13320f510fa10ff1fff08fa08fd08fa04fdff010be04b20ff2fff20f02fff20f12e0b7f210bfc013fc00b0452ff00ff04fff4ff040b14567f800b205a02fd00ff0b30500bf0000b34520bd0220b3e5200ff0b7010830385058303c505c303c50507ac0f580ff8fff81fb01f501fb03f600b30450b3b405701ab0b504248fa48ff4fff78fd40ea0b131255abaadd55bbaa7d55eb0b9053aaaaf755aaaafd55aa000b11410bc036800b1130ff0b524220f5200b8f510b7a320bf002010be140ff035603aa035607ac075400030b3a410b3344ab003c14ffd7ff14be147d0b066200c0400b5b400b534340ea0b5a129000d000f000700030001c0b311b143c0b406a000b416c00010ba310c30b6661ff41ffff007f003f001f000f0b33138bff880b1329d3ff63ff01ff0ffffefe7efefc0b9c60ff3b3f3a3f1c1f07070bfff27fffbbfbbbfb71f1c0c00bfff20101ffffc5c5050505050bfe10ffff8080ffc7bb83a0a0a0a00bce61ff0f180e180f180f180d180c0be961c7ffbbffabffc7ff7c7c0bfff2a1dfc1bfa3dfc3bfa7dec7beaeddcebde0bfe0bfa07fa07f0b80200b8020bcdbdcbbb8f7f8b7f0eff1efe1dfe3dd0b18740b187443fd0b407042fd42fd40ff0b4a700b3078e0ffc0bf0ba01042ff42ff44ff44ff48ff48ff50ff50ff600b7370df40ff0bd000143e143d0b80733f173f143cfcffbbbfbabf0ba666f8f8808080800bfff60b36170bfff10f010f000bc2760700ececb8f8a8d87e9ebafe92fe7ebed838ee1de61fe71fe21fc63ba47bb679b7790b18400bca300b1644"
     },
     {
-      "name": "Room 02/04 thermal palette 5: tank green equivalent",
+      "name": "Room 02/04 thermal palette 5: APC green equivalent",
       "offset": "155581",
       "before": "19",
       "after": "14"

@@ -19,9 +19,9 @@ The existing invalid record **0E/13** remained invalid.
 The room comparison found no changes to collision, triggers, entries, exits, objects, or other decoded gameplay records.
 
 The expected image used the four established PC color corrections, reconstructed from the original ROM.
-It also included the selected brown-to-dark-green change for three shadow pixels per tank.
+It also included the selected brown-to-dark-green change for three shadow pixels per APC.
 Every target pixel matched that expected image.
-The changed pixels remained inside the eight selected tile quadrants across both tanks.
+The changed pixels remained inside the eight selected tile quadrants across both APCs.
 
 ## Emulator checks
 
@@ -47,7 +47,7 @@ These tests do not claim identical instruction timing or physical hardware valid
 
 ## Published screenshots
 
-[Before](images/before.png) and [after](images/after.png) show both complete tanks and the full HUD.
+[Before](images/before.png) and [after](images/after.png) show both complete APCs and the full HUD.
 Both files are native **160 × 144** SameBoy screenshots.
 SameBoy rendered the source and release target directly with color correction disabled.
 Pillow converted the captured PPM frames to PNG without resizing or recoloring.
@@ -69,5 +69,47 @@ The BPS reader rejected a modified source ROM and a corrupted patch.
 The patched cartridge passed its header and global checksum checks.
 
 The Python tool reproduced the target ROM exactly.
-It rejected European, Japanese, and already-patched ROMs.
+It detected the clean USA, European, and Japanese releases and rejected already-patched or modified source ROMs.
 It preserved an existing output file and rejected the source path as the output path.
+
+## European and Japanese releases
+
+The regional checks used the verified original ROMs and their respective release targets.
+Both emulators loaded these ROMs directly.
+The decoder checked each regional source against the verified USA data layout before rendering.
+
+| Check | Europe | Japan |
+| --- | --- | --- |
+| Valid rooms compared | 496 | 496 |
+| Changed room | 02/04 | 02/04 |
+| Changed pixels | 384 | 384 |
+| Expected-image differences | None | None |
+| Decoded gameplay-record differences | None | None |
+| Existing invalid room | 0E/13, unchanged | 0E/13, unchanged |
+| PyBoy retail boot and movement | Passed | Passed |
+| SameBoy retail boot and movement | Passed | Passed |
+| Normal and thermal screenshot differences | 384 pixels | 384 pixels |
+| Compared gameplay state | Equal | Equal |
+
+The European radar table uses `21:667A`; the Japanese table uses `21:6680`.
+The decoder derived these addresses from each ROM's radar loader and verified the area pointers.
+SameBoy used game-update hooks at `06:52D2` for Europe and `06:52D4` for Japan.
+The selector and camera RAM references remain unchanged.
+
+[European before](images/eu-before.png) and [European after](images/eu-after.png) show the original and patched European ROMs.
+[Japanese before](images/jp-before.png) and [Japanese after](images/jp-after.png) show the original and patched Japanese ROMs.
+Each screenshot retains the native 160 × 144 resolution.
+The capture method matches the USA checks described above.
+
+## Floating IPS checks
+
+[Floating IPS](https://github.com/Sir-Walrus/Flips/tree/ff216a75df0987047a67d7923567dc4482ce07ac) independently applied all six regional BPS and IPS files.
+Each result matched its manifest's target SHA-256.
+All six attempts to apply a BPS patch to another supported region failed without producing output files.
+
+## Python code quality
+
+Ruff 0.17.0 passed its lint and formatting checks.
+The configuration targets Python 3.8.
+After formatting, all six regional patch files remained byte-identical.
+GitHub Actions runs the same checks without ROM files.

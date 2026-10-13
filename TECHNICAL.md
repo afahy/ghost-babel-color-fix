@@ -1,8 +1,9 @@
 # Technical notes
 
-Version 1.0 changes background data for both tanks in area `02`, room `04`.
-It uses the clean, unheadered USA ROM identified in `changes.json`.
-The ROM remains 2,097,152 bytes long.
+Version 1.1 changes background data for both APCs in area `02`, room `04`.
+Each regional manifest identifies its clean source ROM.
+The USA and Japanese ROMs remain 2,097,152 bytes long.
+The European ROM remains 4,194,304 bytes long.
 The patch changes no executable instructions.
 
 ## Palette design
@@ -12,7 +13,7 @@ Palette 5 is unused in the original room map.
 Palettes 6 and 7 supply the HUD colors.
 
 The front corners need sand and three hull greens.
-The lower left corner also contains three brown shadow pixels per tank.
+The lower left corner also contains three brown shadow pixels per APC.
 An exact correction would require seven distinct four-color combinations in the room map.
 The six map palettes cannot hold all seven combinations while preserving the other tiles.
 
@@ -34,6 +35,8 @@ Palette 5 uses these BGR555 values:
 Offsets below identify bytes from the start of the ROM.
 Bank addresses use the game's switchable ROM address range.
 Words use little-endian byte order, except the global checksum.
+All three releases use the resource offsets below.
+The checksum row shows the USA value; European and Japanese values follow the table.
 
 | ROM offset | Bank address | Original bytes | Patched bytes | Purpose |
 | --- | --- | --- | --- | --- |
@@ -47,6 +50,13 @@ Words use little-endian byte order, except the global checksum.
 | `155581` | `55:5581` | `19` | `14` | Correct thermal palette 5, color 2 |
 
 `changes.json` contains every original and replacement byte, including the compressed tileset.
+`changes-eu.json` and `changes-jp.json` contain the corresponding European and Japanese edits.
+
+| Region | Original global checksum | Patched global checksum |
+| --- | --- | --- |
+| USA | `3E5E` | `0FE5` |
+| Europe | `9974` | `6AFB` |
+| Japan | `5E56` | `2FDD` |
 
 ## Isolated tileset
 
@@ -95,8 +105,5 @@ The tool checks the source hashes and each original byte range.
 It then checks all target hashes, the header checksum, and the global checksum.
 It refuses an existing output file or an output path that equals the input path.
 
-The target SHA-256 is:
-
-```text
-245ea9cda899fe042d26a68a9429e789d15fddbcf38e8dbe7ade43c59db2d525
-```
+The tool detects the source region from its hashes.
+Each manifest contains that region's target SHA-256.

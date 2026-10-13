@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Apply or rebuild the isolated Ghost Babel tank color patch."""
+"""Apply or rebuild the isolated Ghost Babel APC color patch."""
 
 import argparse
 import hashlib
 import json
-from pathlib import Path
 import struct
 import sys
 import zlib
+from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 PATCH_NAME = "ghost-babel-tank-color-fix-v1.0"
@@ -23,16 +23,17 @@ def hashes(data):
     }
 
 
-def load_source(path, manifest):
+def load_source(path):
     data = path.read_bytes()
     actual = hashes(data)
-    if actual != manifest["source"]:
-        raise ValueError(
-            "Wrong source ROM. Use the clean, unheadered USA release. "
-            f"Expected SHA-256 {manifest['source']['sha256']}; "
-            f"received {actual['sha256']}."
-        )
-    return data
+    for manifest_path in sorted(ROOT.glob("changes*.json")):
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        if actual == manifest["source"]:
+            return data, manifest
+    raise ValueError(
+        "Unsupported source ROM. Use a clean, unheadered USA, Europe, or Japan release. "
+        f"Received SHA-256 {actual['sha256']}."
+    )
 
 
 def patched(source, manifest):
@@ -46,9 +47,9 @@ def patched(source, manifest):
             raise ValueError(f"Invalid edit length: {edit['name']}")
         if offset < previous_end or offset + len(before) > len(source):
             raise ValueError(f"Overlapping or out-of-range edit: {edit['name']}")
-        if source[offset:offset + len(before)] != before:
+        if source[offset : offset + len(before)] != before:
             raise ValueError(f"Original bytes differ: {edit['name']}")
-        target[offset:offset + len(after)] = after
+        target[offset : offset + len(after)] = after
         previous_end = offset + len(before)
     target = bytes(target)
     if hashes(target) != manifest["target"]:
@@ -128,10 +129,9 @@ def main():
     build.add_argument("rom", type=Path)
     build.add_argument("--output-dir", type=Path, default=ROOT / "patches")
     args = parser.parse_args()
-    manifest = json.loads((ROOT / "changes.json").read_text(encoding="utf-8"))
-    source = load_source(args.rom, manifest)
+    source, manifest = load_source(args.rom)
     if args.command == "verify":
-        print("Source ROM verified.")
+        print(f"Source ROM verified: {manifest.get('region', 'USA')}.")
         print(json.dumps(hashes(source), indent=2))
         return
     target = patched(source, manifest)
@@ -144,8 +144,9 @@ def main():
         print(f"SHA-256: {hashes(target)['sha256']}")
         return
     args.output_dir.mkdir(parents=True, exist_ok=True)
+    patch_name = manifest.get("patch_name", PATCH_NAME)
     for extension, maker in (("bps", make_bps), ("ips", make_ips)):
-        path = args.output_dir / f"{PATCH_NAME}.{extension}"
+        path = args.output_dir / f"{patch_name}.{extension}"
         data = maker(source, target)
         path.write_bytes(data)
         print(f"{path.name}: {len(data)} bytes; SHA-256 {hashes(data)['sha256']}")
