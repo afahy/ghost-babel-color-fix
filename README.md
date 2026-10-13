@@ -64,7 +64,7 @@ The images below show the difference between the original and patched ROMs.
 
 ### Video
 
-[![Before and after ROM comparison video](images/video-preview.png)](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.0/ghost-babel-before-after.mp4)
+https://github.com/user-attachments/assets/a74f9fd3-fadf-4979-bc6d-41d498496253
 
 [Watch or download the comparison video](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.0/ghost-babel-before-after.mp4) (MP4, 42 seconds).
 SameBoy recorded the original and combined USA ROMs side by side, with game audio.
