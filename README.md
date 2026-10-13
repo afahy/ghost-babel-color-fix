@@ -62,6 +62,14 @@ The earlier [version 1.1 release](https://github.com/afahy/ghost-babel-color-fix
 
 The images below show the difference between the original and patched ROMs.
 
+### Video
+
+[![Before and after ROM comparison video](images/video-preview.png)](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.0/ghost-babel-before-after.mp4)
+
+[Watch or download the comparison video](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.0/ghost-babel-before-after.mp4) (MP4, 42 seconds).
+SameBoy recorded the original and combined USA ROMs side by side, with game audio.
+The video includes Campbell, his mirrored portrait, and the normal and thermal APC views.
+
 ### APCs
 
 | Original | Patched |
