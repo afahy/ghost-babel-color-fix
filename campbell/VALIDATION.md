@@ -1,14 +1,14 @@
 # Campbell correction: validation
 
 Validation date: 2026-10-13.
-This patch remains experimental and unreleased.
+This report covers the Campbell portrait correction included in the optional APC + Campbell patch set.
 The USA ROM passed introduction and gameplay checks in PyBoy and SameBoy.
 European and Japanese ROMs passed shorter PyBoy opening-scene checks.
 Physical Game Boy Color hardware has not been tested.
 
 ## ROM identities
 
-The regional manifests identify these clean source ROMs and experimental targets.
+The regional manifests identify these clean source ROMs and Campbell-only targets.
 Each patch changes 1,225 bytes and preserves the source ROM size.
 
 | Region | Source SHA-256 | Target SHA-256 |
@@ -64,7 +64,7 @@ SameBoy regional tests and physical hardware tests have not been performed.
 
 [Before](../images/campbell-before.png) and [after](../images/campbell-after.png) show the full opening briefing scene.
 [Mirrored before](../images/campbell-before-mirrored.png) and [mirrored after](../images/campbell-after-mirrored.png) show the later portrait orientation.
-These files are native 160 × 144 SameBoy screenshots from the source and experimental target ROMs.
+These files are native 160 × 144 SameBoy screenshots from the source and Campbell-only target ROMs.
 They contain no image-editor color corrections.
 
 The emulator tests loaded the original and separately patched ROMs.
@@ -76,10 +76,10 @@ Floating IPS independently applied all three regional BPS files and all three re
 Each output matched its manifest's target SHA-256.
 The Python tool applied all three regional corrections and rejected existing output files.
 Rebuilding reproduced the patch files exactly.
-The CLI's default APC selection remained unchanged.
+The CLI's default apply selection remained APC-only.
 All source ROM hashes remained unchanged, and the targets passed cartridge checksum checks.
 
-The existing APC release's validation does not validate this experimental Campbell patch.
+The APC-only validation covers a different correction; this report records Campbell's checks.
 
 ## Limits
 

@@ -121,9 +121,11 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--fix",
-        choices=("apc", "campbell"),
-        default="apc",
-        help="Select the color correction. The default is apc.",
+        choices=("apc", "campbell", "combined"),
+        help=(
+            "Select APC, Campbell, or both color corrections. "
+            "Apply and verify default to apc; build defaults to apc and combined."
+        ),
     )
     commands = parser.add_subparsers(dest="command", required=True)
     verify = commands.add_parser("verify", help="Check the source ROM hashes.")
@@ -135,29 +137,33 @@ def main():
     build.add_argument("rom", type=Path)
     build.add_argument("--output-dir", type=Path)
     args = parser.parse_args()
-    manifest_dir = ROOT if args.fix == "apc" else ROOT / "campbell"
-    source, manifest = load_source(args.rom, manifest_dir)
-    if args.command == "verify":
-        print(f"Source ROM verified: {manifest.get('region', 'USA')}.")
-        print(json.dumps(hashes(source), indent=2))
-        return
-    target = patched(source, manifest)
-    if args.command == "apply":
-        if args.rom.resolve() == args.output.resolve():
-            raise ValueError("Use a separate output file.")
-        with args.output.open("xb") as handle:
-            handle.write(target)
-        print(f"Patched ROM: {args.output}")
-        print(f"SHA-256: {hashes(target)['sha256']}")
-        return
-    output_dir = args.output_dir or manifest_dir / "patches"
-    output_dir.mkdir(parents=True, exist_ok=True)
-    patch_name = manifest.get("patch_name", PATCH_NAME)
-    for extension, maker in (("bps", make_bps), ("ips", make_ips)):
-        path = output_dir / f"{patch_name}.{extension}"
-        data = maker(source, target)
-        path.write_bytes(data)
-        print(f"{path.name}: {len(data)} bytes; SHA-256 {hashes(data)['sha256']}")
+    fixes = (args.fix or "apc",)
+    if args.command == "build" and args.fix is None:
+        fixes = ("apc", "combined")
+    for fix in fixes:
+        manifest_dir = ROOT if fix == "apc" else ROOT / fix
+        source, manifest = load_source(args.rom, manifest_dir)
+        if args.command == "verify":
+            print(f"Source ROM verified: {manifest.get('region', 'USA')}.")
+            print(json.dumps(hashes(source), indent=2))
+            return
+        target = patched(source, manifest)
+        if args.command == "apply":
+            if args.rom.resolve() == args.output.resolve():
+                raise ValueError("Use a separate output file.")
+            with args.output.open("xb") as handle:
+                handle.write(target)
+            print(f"Patched ROM: {args.output}")
+            print(f"SHA-256: {hashes(target)['sha256']}")
+            return
+        output_dir = args.output_dir or manifest_dir / "patches"
+        output_dir.mkdir(parents=True, exist_ok=True)
+        patch_name = manifest.get("patch_name", PATCH_NAME)
+        for extension, maker in (("bps", make_bps), ("ips", make_ips)):
+            path = output_dir / f"{patch_name}.{extension}"
+            data = maker(source, target)
+            path.write_bytes(data)
+            print(f"{path.name}: {len(data)} bytes; SHA-256 {hashes(data)['sha256']}")
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
-8937068db030f9da8b5f05d84153cc46c4dfdc629b5e06679b10c8e9939c99f8  ghost-babel-apc-color-fix-eu-v1.1.bps
-77a72baf6ba6cdef5d5ea75f1f354b6ce4c6567483a6ebaf14ad96fba41e1cc2  ghost-babel-apc-color-fix-eu-v1.1.ips
-6a1a1b6a7d763af239ba91769e8b715736e703112107ce56aee8dca0e078a2e7  ghost-babel-apc-color-fix-jp-v1.1.bps
-a3c73e943d6be2ba4be5ab581297f3f0679cc317a24d3f05e7a93e64de77305e  ghost-babel-apc-color-fix-jp-v1.1.ips
-bd1c2dc5379d03a6eb128fbb95b332f1b6d11a221e7c43cd0f58a80fb895ab06  ghost-babel-apc-color-fix-us-v1.1.bps
-6f8b6fc8c5f557c4060da25b284efef1835b63677d67cbcef4914ed68b933d88  ghost-babel-apc-color-fix-us-v1.1.ips
+bd1c2dc5379d03a6eb128fbb95b332f1b6d11a221e7c43cd0f58a80fb895ab06  ghost-babel-apc-color-fix-us-v1.2.bps
+6f8b6fc8c5f557c4060da25b284efef1835b63677d67cbcef4914ed68b933d88  ghost-babel-apc-color-fix-us-v1.2.ips
+8937068db030f9da8b5f05d84153cc46c4dfdc629b5e06679b10c8e9939c99f8  ghost-babel-apc-color-fix-eu-v1.2.bps
+77a72baf6ba6cdef5d5ea75f1f354b6ce4c6567483a6ebaf14ad96fba41e1cc2  ghost-babel-apc-color-fix-eu-v1.2.ips
+6a1a1b6a7d763af239ba91769e8b715736e703112107ce56aee8dca0e078a2e7  ghost-babel-apc-color-fix-jp-v1.2.bps
+a3c73e943d6be2ba4be5ab581297f3f0679cc317a24d3f05e7a93e64de77305e  ghost-babel-apc-color-fix-jp-v1.2.ips

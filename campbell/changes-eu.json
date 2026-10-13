@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "name": "Ghost Babel Campbell portrait color correction",
-  "version": "experimental",
+  "version": "1.2",
   "region": "eu",
-  "patch_name": "ghost-babel-campbell-color-fix-eu-experimental",
+  "patch_name": "ghost-babel-campbell-color-fix-eu-v1.2",
   "source_filename": "Metal Gear Solid (Europe) (En,Fr,De,Es,It).gbc",
   "source": {
     "size": 4194304,

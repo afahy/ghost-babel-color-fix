@@ -3,7 +3,7 @@
 Validation date: 2026-10-13.
 
 This report covers the released APC correction.
-[Campbell validation](campbell/VALIDATION.md) covers the experimental portrait correction.
+[Campbell validation](campbell/VALIDATION.md) covers the optional portrait correction.
 [Combined validation](campbell/COMBINED_VALIDATION.md) covers ROMs containing both corrections.
 
 The tests used the unmodified 2 MiB **Metal Gear Solid (USA)** ROM as the source.

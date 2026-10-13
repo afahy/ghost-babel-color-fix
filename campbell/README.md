@@ -1,11 +1,15 @@
-# Experimental Campbell portrait color correction
+# Campbell portrait color correction
 
-This unreleased patch changes Campbell's portrait colors in the opening briefing of *Metal Gear Solid* on Game Boy Color.
+This correction changes Campbell's portrait colors in the opening briefing of *Metal Gear Solid* on Game Boy Color.
 It gives his face consistent skin colors and keeps the beret, white collar, and pale pink background.
 Small shading changes let the portrait use ordinary background tiles and palettes.
 
 The original artist's intent remains uncertain.
 This patch offers a color interpretation; it does not establish that the original portrait contains a bug.
+
+Version 1.2 includes this correction in the [optional APC + Campbell patch set](../combined/README.md).
+The [primary APC-only set](../README.md#download) provides a version without Campbell's portrait correction.
+Each combined patch applies both corrections to a clean ROM.
 
 ## Comparison
 
@@ -16,16 +20,16 @@ SameBoy rendered both ROMs directly.
 | --- | --- |
 | ![Original Campbell portrait](../images/campbell-before.png) | ![Corrected Campbell portrait](../images/campbell-after.png) |
 
-## Patch files
+## Campbell-only patch files
 
-These files contain the experimental Campbell correction only.
+These retained standalone files contain the Campbell correction only.
 They require a clean source ROM and do not include the APC correction.
 
 | Region | BPS | IPS |
 | --- | --- | --- |
-| USA | [USA BPS](patches/ghost-babel-campbell-color-fix-us-experimental.bps) | [USA IPS](patches/ghost-babel-campbell-color-fix-us-experimental.ips) |
-| Europe | [European BPS](patches/ghost-babel-campbell-color-fix-eu-experimental.bps) | [European IPS](patches/ghost-babel-campbell-color-fix-eu-experimental.ips) |
-| Japan | [Japanese BPS](patches/ghost-babel-campbell-color-fix-jp-experimental.bps) | [Japanese IPS](patches/ghost-babel-campbell-color-fix-jp-experimental.ips) |
+| USA | [USA BPS](patches/ghost-babel-campbell-color-fix-us-v1.2.bps) | [USA IPS](patches/ghost-babel-campbell-color-fix-us-v1.2.ips) |
+| Europe | [European BPS](patches/ghost-babel-campbell-color-fix-eu-v1.2.bps) | [European IPS](patches/ghost-babel-campbell-color-fix-eu-v1.2.ips) |
+| Japan | [Japanese BPS](patches/ghost-babel-campbell-color-fix-jp-v1.2.bps) | [Japanese IPS](patches/ghost-babel-campbell-color-fix-jp-v1.2.ips) |
 
 BPS checks the source ROM checksum.
 IPS does not include a source checksum.
@@ -85,8 +89,8 @@ One skin pixel at `(48, 44)` uses the darker skin shade to preserve that separat
 [VALIDATION.md](VALIDATION.md) records the current test status.
 Physical Game Boy Color hardware has not been tested.
 
-Experimental ROMs containing both the APC and Campbell corrections passed the checks in [COMBINED_VALIDATION.md](COMBINED_VALIDATION.md).
-The distributed standalone patch files remain unchanged and require clean source ROMs.
+The version 1.2 combined ROMs passed the checks in [COMBINED_VALIDATION.md](COMBINED_VALIDATION.md).
+The standalone patch files require clean source ROMs.
 The standalone BPS patches reject a ROM containing the other correction.
 Other patch combinations have not been tested.
 

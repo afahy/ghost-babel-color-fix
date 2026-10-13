@@ -1,0 +1,6 @@
+6f28d5911c948d3fd2c27207212d4d703717d1185a267d22cb4ba959e65ced92  ghost-babel-campbell-color-fix-us-v1.2.bps
+2c29f9547d8dc7450533e14410d1b4bfcdd9c7006327b004581b496104f209ed  ghost-babel-campbell-color-fix-us-v1.2.ips
+480e384ab4a1a771e254e38e673671d2751be9649408b9bd5791c7276ff75365  ghost-babel-campbell-color-fix-eu-v1.2.bps
+c108b6078f2296fe984d6551e048329558e0863cb0406e1a9cdf0190936114fd  ghost-babel-campbell-color-fix-eu-v1.2.ips
+b20ea54623a278eb48427e9295479c64b7a6446ca3de2166210aca2d6cc53fb2  ghost-babel-campbell-color-fix-jp-v1.2.bps
+b586e0a8e90f378edbf129f74819e863e73f039e6d2271d41daeb47b75f73a4f  ghost-babel-campbell-color-fix-jp-v1.2.ips

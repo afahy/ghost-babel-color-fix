@@ -1,21 +1,24 @@
 # Combined APC and Campbell corrections: validation
 
 Validation date: 2026-10-13.
-Local experimental ROMs containing both corrections passed the checks below.
-The distributed standalone patch files remain unchanged.
+The version 1.2 combined ROMs containing both corrections passed the checks below.
+The [optional APC + Campbell patch set](../combined/README.md) produces these tested ROMs.
 Physical Game Boy Color hardware has not been tested.
 
 ## Composition and patch checks
 
-The combined build starts with each region's clean original ROM and applies both manifests.
+The composition checks started with each region's clean original ROM and applied both corrections' edit ranges.
 Their data ranges do not overlap, except for the global checksum.
-The build calculates the checksum once, after applying all other edits.
-Either edit order produces the same combined ROM.
+The checks calculated the checksum once, after applying all other edits.
+Either edit order produced the same combined ROM.
 Both corrections retain their expected data bytes.
+
+The combined manifests record both corrections and one checksum update.
+The Python tool builds the optional patch set directly from each region's combined manifest.
 
 Each combined ROM changes 2,566 bytes and preserves the original ROM size.
 All original source hashes remained unchanged.
-Floating IPS independently applied six newly generated local combined patches: BPS and IPS for each region.
+Floating IPS independently applied the six version 1.2 combined patches: BPS and IPS for each region.
 Each result matched its combined ROM's SHA-256.
 
 | Region | Combined ROM SHA-256 |
@@ -70,6 +73,6 @@ These checks did not repeat the full introduction or later gameplay in those reg
 
 ## Limits
 
-The tests establish the recorded emulator behavior of these experimental combined ROMs.
+The tests establish the recorded emulator behavior of the version 1.2 combined ROMs.
 They do not establish physical hardware compatibility.
 Other patch combinations have not been tested.

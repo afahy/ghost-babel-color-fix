@@ -1,15 +1,18 @@
 # Contributing to Ghost Babel Color Corrections
 
-The project covers the released APC correction and the experimental Campbell portrait correction.
-Each correction has separate regional manifests and standalone patch files.
+The project covers the APC correction and the Campbell portrait correction.
+APC patches are the primary release files.
+Optional combined patches include both corrections.
+Campbell-only patches remain available for development.
+Each patch selection has separate regional manifests and patch files.
 
 The APC manifests are `changes.json`, `changes-eu.json`, and `changes-jp.json` in the repository directory.
 The Campbell manifests are `changes-us.json`, `changes-eu.json`, and `changes-jp.json` under `campbell/`.
-APC patches are in `patches/`; Campbell patches are in `campbell/patches/`.
+The combined manifests use the same regional names under `combined/`.
+APC patches are in `patches/`; Campbell patches are in `campbell/patches/`; combined patches are in `combined/patches/`.
 
-Both standalone corrections require clean regional ROMs.
-Local combined ROMs passed the checks in [COMBINED_VALIDATION.md](campbell/COMBINED_VALIDATION.md).
-The repository does not contain combined patch files.
+All patch selections require clean regional ROMs.
+Combined ROMs passed the checks in [COMBINED_VALIDATION.md](campbell/COMBINED_VALIDATION.md).
 The standalone BPS patches cannot be applied sequentially.
 
 `patch.py` supports Python 3.8 or later and uses only the standard library.
@@ -66,24 +69,35 @@ Keep compatibility with Python 3.8.
 
 Use your own supported clean ROM dumps when a change affects patch behavior.
 Place `--fix` before the subcommand.
-Select `--fix apc` for APC patches or `--fix campbell` for Campbell patches.
-The default selection is `apc`.
+Select `--fix apc`, `--fix campbell`, or `--fix combined`.
+The `apply` and `verify` commands default to `apc`.
+The `build` command builds APC and combined patches by default.
+An explicit `--fix` selection builds only that selection.
 
-Verify both corrections against a clean source ROM:
+Verify each patch selection against a clean source ROM:
 
 ```sh
 python patch.py --fix apc verify "/path/to/Metal Gear Solid (USA).gbc"
 python patch.py --fix campbell verify "/path/to/Metal Gear Solid (USA).gbc"
+python patch.py --fix combined verify "/path/to/Metal Gear Solid (USA).gbc"
 ```
 
-Rebuild the affected regional patches:
+Rebuild both release selections for a region:
+
+```sh
+python patch.py build "/path/to/Metal Gear Solid (USA).gbc"
+```
+
+Rebuild a specific patch selection:
 
 ```sh
 python patch.py --fix apc build "/path/to/Metal Gear Solid (USA).gbc"
 python patch.py --fix campbell build "/path/to/Metal Gear Solid (USA).gbc"
+python patch.py --fix combined build "/path/to/Metal Gear Solid (USA).gbc"
 ```
 
 Each command writes that region's BPS and IPS files into the selected correction's patch directory.
+With `--output-dir`, the command writes all selected patch files into that directory.
 Each manifest records the expected source hashes, target hashes, and byte changes.
 Keep these records consistent with the generated patches.
 

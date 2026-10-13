@@ -1,7 +1,7 @@
 # Metal Gear Solid: Ghost Babel Color Corrections
 
 This project provides color corrections for *Metal Gear Solid* on Game Boy Color, also known as *Metal Gear: Ghost Babel*.
-It includes the Stage 2 APC correction and an experimental Campbell portrait correction for the opening briefing.
+Version 1.2 provides the Stage 2 APC correction and an optional patch set that also corrects Campbell's opening portrait.
 The repository contains no game ROM.
 
 ## Corrections
@@ -22,22 +22,41 @@ Small outline and shading changes keep the portrait within each background tile'
 The patch updates both portrait orientations and preserves Snake's colors, dialogue, and separate portrait fades.
 
 The original artist's intent remains uncertain.
-This experimental patch offers an optional color interpretation.
+This correction offers an optional color interpretation.
 [Campbell's documentation](campbell/README.md) describes its design, patch files, and test results.
 
 ## Download
 
-Each correction has separate USA, European, and Japanese patches in BPS and IPS formats.
+The [version 1.2 release](https://github.com/afahy/ghost-babel-color-fix/releases/tag/v1.2.0) includes two patch sets.
+Each set provides USA, European, and Japanese patches in BPS and IPS formats.
 
-| Correction | Status | Patch files |
+| Patch set | Contents | Download |
 | --- | --- | --- |
-| APCs | Released as version 1.1 | [Release download](https://github.com/afahy/ghost-babel-tank-color-fix/releases/tag/v1.1.0) |
-| Campbell | Experimental and unreleased | [Regional patches](campbell/README.md#patch-files) |
+| Primary | APC correction only | [APC archive](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.0/ghost-babel-apc-color-fix-v1.2.zip) |
+| Optional | APC and Campbell corrections | [APC + Campbell archive](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.0/ghost-babel-apc-campbell-color-fixes-v1.2.zip) |
 
-Version 1.1 contains the APC correction only.
-The standalone Campbell patches contain the portrait correction only.
-ROMs containing both corrections passed the [combined validation checks](campbell/COMBINED_VALIDATION.md).
-Each standalone BPS patch requires a clean ROM; the two files cannot be applied sequentially.
+The primary set provides a version without Campbell's portrait correction.
+The optional set contains both corrections in each patch.
+Each patch requires a clean ROM; standalone BPS files cannot be applied sequentially.
+
+### Primary APC-only patches
+
+| Region | BPS | IPS |
+| --- | --- | --- |
+| USA | [USA BPS](patches/ghost-babel-apc-color-fix-us-v1.2.bps) | [USA IPS](patches/ghost-babel-apc-color-fix-us-v1.2.ips) |
+| Europe | [European BPS](patches/ghost-babel-apc-color-fix-eu-v1.2.bps) | [European IPS](patches/ghost-babel-apc-color-fix-eu-v1.2.ips) |
+| Japan | [Japanese BPS](patches/ghost-babel-apc-color-fix-jp-v1.2.bps) | [Japanese IPS](patches/ghost-babel-apc-color-fix-jp-v1.2.ips) |
+
+### Optional APC + Campbell patches
+
+| Region | BPS | IPS |
+| --- | --- | --- |
+| USA | [USA BPS](combined/patches/ghost-babel-color-corrections-us-v1.2.bps) | [USA IPS](combined/patches/ghost-babel-color-corrections-us-v1.2.ips) |
+| Europe | [European BPS](combined/patches/ghost-babel-color-corrections-eu-v1.2.bps) | [European IPS](combined/patches/ghost-babel-color-corrections-eu-v1.2.ips) |
+| Japan | [Japanese BPS](combined/patches/ghost-babel-color-corrections-jp-v1.2.bps) | [Japanese IPS](combined/patches/ghost-babel-color-corrections-jp-v1.2.ips) |
+
+[Combined patch documentation](combined/README.md) provides target hashes and application details.
+The earlier [version 1.1 release](https://github.com/afahy/ghost-babel-color-fix/releases/tag/v1.1.0) contains the same APC correction only.
 
 ## Comparison
 
@@ -60,7 +79,7 @@ SameBoy rendered these images directly from the original and patched ROMs.
 ## Required source ROMs
 
 Use a clean ROM dump without an added copier header.
-Select the desired correction and your dump's region.
+Select the primary or optional patch set and your dump's region.
 
 | Region | Source ROM | Size | CRC32 | MD5 |
 | --- | --- | --- | --- | --- |
@@ -84,7 +103,7 @@ The IPS format does not include a source checksum.
 2. Download Floating IPS for your operating system.
 3. Start Floating IPS.
 4. Select **Apply Patch**.
-5. Select the BPS patch for your chosen correction and ROM region.
+5. Select the BPS patch for your chosen patch set and ROM region.
 6. Select your clean ROM dump.
 7. Save the patched ROM as a separate file.
 8. Start the patched ROM in your emulator or flash cartridge.
@@ -93,7 +112,7 @@ The IPS format does not include a source checksum.
 
 1. Open [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/).
 2. Select your clean dump in **ROM file**.
-3. Select the matching correction and regional BPS patch in **Patch file**.
+3. Select the matching patch set and regional BPS patch in **Patch file**.
 4. Select **Apply patch**.
 5. Save the patched ROM as a separate file.
 
@@ -106,41 +125,49 @@ The tool checks all source hashes and verifies the patched ROM hashes.
 It detects the USA, European, or Japanese source automatically.
 It rejects an existing output file.
 
-Select the correction with `--fix apc` or `--fix campbell`.
-The tool selects `apc` when you omit `--fix`.
+The apply command selects the primary APC-only set when you omit `--fix`.
+Use `--fix combined` to select the optional APC + Campbell set.
 
-Run the command for your desired correction from the repository directory:
+Run the command for your desired patch set from the repository directory:
 
 ```sh
-python patch.py --fix apc apply "/path/to/Metal Gear Solid (USA).gbc" "/path/to/Metal Gear Solid (USA) (APC Color Fix).gbc"
-python patch.py --fix campbell apply "/path/to/Metal Gear Solid (USA).gbc" "/path/to/Metal Gear Solid (USA) (Campbell Color Fix).gbc"
+python patch.py apply "/path/to/Metal Gear Solid (USA).gbc" "/path/to/Metal Gear Solid (USA) (APC Color Fix).gbc"
+python patch.py --fix combined apply "/path/to/Metal Gear Solid (USA).gbc" "/path/to/Metal Gear Solid (USA) (APC and Campbell).gbc"
 ```
 
-Each command produces a separate ROM containing its selected correction.
+Each command produces a separate ROM containing its selected patch set.
 The `verify` command checks the clean source without writing a ROM:
 
 ```sh
-python patch.py --fix campbell verify "/path/to/Metal Gear Solid (USA).gbc"
+python patch.py --fix combined verify "/path/to/Metal Gear Solid (USA).gbc"
 ```
 
 ## Rebuild the patch files
 
-Run the command for your desired correction with a clean source ROM:
+Build both release patch sets for a clean regional source ROM:
+
+```sh
+python patch.py build "/path/to/Metal Gear Solid (USA).gbc"
+```
+
+Build only one selected patch set:
 
 ```sh
 python patch.py --fix apc build "/path/to/Metal Gear Solid (USA).gbc"
-python patch.py --fix campbell build "/path/to/Metal Gear Solid (USA).gbc"
+python patch.py --fix combined build "/path/to/Metal Gear Solid (USA).gbc"
 ```
 
-Each command recreates the selected region's BPS and IPS files.
+The default build recreates both sets of regional BPS and IPS files.
+An explicit `--fix` option limits the build to that selection.
 
-| Correction | Manifests | Build output |
+| Patch set | Manifests | Build output |
 | --- | --- | --- |
 | APCs | `changes.json`, `changes-eu.json`, `changes-jp.json` | `patches/` |
-| Campbell | `campbell/changes-us.json`, `campbell/changes-eu.json`, `campbell/changes-jp.json` | `campbell/patches/` |
+| APC + Campbell | `combined/changes-us.json`, `combined/changes-eu.json`, `combined/changes-jp.json` | `combined/patches/` |
 
 Each manifest records the edits, expected original bytes, and source and target hashes.
 The build does not require the disassembly project, an assembler, or game assets from another repository.
+The [Campbell documentation](campbell/README.md) also describes the retained Campbell-only build option.
 
 ## Scope and compatibility
 

@@ -1,6 +1,6 @@
 # Campbell correction: technical notes
 
-The experimental patch changes the opening briefing's scene `03` graphics, tile map, palette attributes, and palette set.
+The Campbell correction changes the opening briefing's scene `03` graphics, tile map, palette attributes, and palette set.
 The USA, European, and Japanese releases use the same resource offsets.
 Each regional manifest identifies its clean source ROM and target hashes.
 Each patch changes 1,225 ROM bytes without changing the ROM size.

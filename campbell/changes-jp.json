@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "name": "Ghost Babel Campbell portrait color correction",
-  "version": "experimental",
+  "version": "1.2",
   "region": "jp",
-  "patch_name": "ghost-babel-campbell-color-fix-jp-experimental",
+  "patch_name": "ghost-babel-campbell-color-fix-jp-v1.2",
   "source_filename": "Metal Gear - Ghost Babel (Japan).gbc",
   "source": {
     "size": 2097152,
