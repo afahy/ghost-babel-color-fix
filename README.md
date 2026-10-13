@@ -1,32 +1,85 @@
-# Metal Gear Solid Ghost Babel APC Color Fix
+# Metal Gear Solid: Ghost Babel Color Corrections
 
-This patch corrects the colors of the two armored personnel carriers in Stage 2’s yard outside Galuade fortress.
-It is a standalone color correction patch for *Metal Gear Solid* on Game Boy Color, also known as *Metal Gear: Ghost Babel*.
-The patch corrects the front corners and lower left corners.
+This project provides color corrections for *Metal Gear Solid* on Game Boy Color, also known as *Metal Gear: Ghost Babel*.
+Version 1.2 provides the Stage 2 APC correction and an optional patch set that also corrects Campbell's opening portrait.
+The repository contains no game ROM.
 
-The original tiles use container and grass palettes, which produce gray, blue, navy, lime, and olive patches on the APC hulls.
-This patch uses the hull's green colors and preserves the surrounding sand.
+## Corrections
+
+### Stage 2 APCs
+
+The APC patch corrects the two armored personnel carriers in Stage 2's yard outside Galuade fortress.
+It corrects their front corners and lower left corners.
+The original tiles use container and grass palettes, which produce gray, blue, navy, lime, and olive patches on the hulls.
+The patch uses the hull's green colors and preserves the surrounding sand.
 Six brown shadow pixels become dark green so all corrected tiles fit the room's available palettes.
+It also corrects the APCs' thermal palette mapping.
+
+### Campbell's opening portrait
+
+The Campbell patch gives his face consistent skin colors and adjusts the collar and background boundaries.
+Small outline and shading changes keep the portrait within each background tile's four-color limit.
+The patch updates both portrait orientations and preserves Snake's colors, dialogue, and separate portrait fades.
+
+The original artist's intent remains uncertain.
+This correction offers an optional color interpretation.
+[Campbell's documentation](campbell/README.md) describes its design, patch files, and test results.
 
 ## Download
 
-[Download version 1.1](https://github.com/afahy/ghost-babel-tank-color-fix/releases/tag/v1.1.0).
-The release includes separate USA, European, and Japanese patches in BPS and IPS formats.
-It also includes instructions and comparison images.
-The repository contains no game ROM.
+The [version 1.2 release](https://github.com/afahy/ghost-babel-color-fix/releases/tag/v1.2.0) includes two patch sets.
+Each set provides USA, European, and Japanese patches in BPS and IPS formats.
+
+| Patch set | Contents | Download |
+| --- | --- | --- |
+| Primary | APC correction only | [APC archive](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.0/ghost-babel-apc-color-fix-v1.2.zip) |
+| Optional | APC and Campbell corrections | [APC + Campbell archive](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.0/ghost-babel-apc-campbell-color-fixes-v1.2.zip) |
+
+The primary set provides a version without Campbell's portrait correction.
+The optional set contains both corrections in each patch.
+Each patch requires a clean ROM; standalone BPS files cannot be applied sequentially.
+
+### Primary APC-only patches
+
+| Region | BPS | IPS |
+| --- | --- | --- |
+| USA | [USA BPS](patches/ghost-babel-apc-color-fix-us-v1.2.bps) | [USA IPS](patches/ghost-babel-apc-color-fix-us-v1.2.ips) |
+| Europe | [European BPS](patches/ghost-babel-apc-color-fix-eu-v1.2.bps) | [European IPS](patches/ghost-babel-apc-color-fix-eu-v1.2.ips) |
+| Japan | [Japanese BPS](patches/ghost-babel-apc-color-fix-jp-v1.2.bps) | [Japanese IPS](patches/ghost-babel-apc-color-fix-jp-v1.2.ips) |
+
+### Optional APC + Campbell patches
+
+| Region | BPS | IPS |
+| --- | --- | --- |
+| USA | [USA BPS](combined/patches/ghost-babel-color-corrections-us-v1.2.bps) | [USA IPS](combined/patches/ghost-babel-color-corrections-us-v1.2.ips) |
+| Europe | [European BPS](combined/patches/ghost-babel-color-corrections-eu-v1.2.bps) | [European IPS](combined/patches/ghost-babel-color-corrections-eu-v1.2.ips) |
+| Japan | [Japanese BPS](combined/patches/ghost-babel-color-corrections-jp-v1.2.bps) | [Japanese IPS](combined/patches/ghost-babel-color-corrections-jp-v1.2.ips) |
+
+[Combined patch documentation](combined/README.md) provides target hashes and application details.
+The earlier [version 1.1 release](https://github.com/afahy/ghost-babel-color-fix/releases/tag/v1.1.0) contains the same APC correction only.
 
 ## Comparison
 
 The images below show the difference between the original and patched ROMs.
 
+### APCs
+
 | Original | Patched |
 | --- | --- |
 | ![Original APC colors](images/before.png) | ![Patched APC colors](images/after.png) |
 
+### Campbell
+
+| Original | Patched |
+| --- | --- |
+| ![Original Campbell portrait](images/campbell-before.png) | ![Patched Campbell portrait](images/campbell-after.png) |
+
+SameBoy rendered these images directly from the original and patched ROMs.
+
 ## Required source ROMs
 
 Use a clean ROM dump without an added copier header.
-Select the patch that matches your dump's region.
+Select the primary or optional patch set and your dump's region.
 
 | Region | Source ROM | Size | CRC32 | MD5 |
 | --- | --- | --- | --- | --- |
@@ -50,7 +103,7 @@ The IPS format does not include a source checksum.
 2. Download Floating IPS for your operating system.
 3. Start Floating IPS.
 4. Select **Apply Patch**.
-5. Select the BPS patch for your ROM's region.
+5. Select the BPS patch for your chosen patch set and ROM region.
 6. Select your clean ROM dump.
 7. Save the patched ROM as a separate file.
 8. Start the patched ROM in your emulator or flash cartridge.
@@ -59,7 +112,7 @@ The IPS format does not include a source checksum.
 
 1. Open [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/).
 2. Select your clean dump in **ROM file**.
-3. Select the BPS patch for your ROM's region in **Patch file**.
+3. Select the matching patch set and regional BPS patch in **Patch file**.
 4. Select **Apply patch**.
 5. Save the patched ROM as a separate file.
 
@@ -72,37 +125,68 @@ The tool checks all source hashes and verifies the patched ROM hashes.
 It detects the USA, European, or Japanese source automatically.
 It rejects an existing output file.
 
-Run these commands from the repository directory:
+The apply command selects the primary APC-only set when you omit `--fix`.
+Use `--fix combined` to select the optional APC + Campbell set.
+
+Run the command for your desired patch set from the repository directory:
 
 ```sh
-python patch.py verify "/path/to/Metal Gear Solid (USA).gbc"
 python patch.py apply "/path/to/Metal Gear Solid (USA).gbc" "/path/to/Metal Gear Solid (USA) (APC Color Fix).gbc"
+python patch.py --fix combined apply "/path/to/Metal Gear Solid (USA).gbc" "/path/to/Metal Gear Solid (USA) (APC and Campbell).gbc"
+```
+
+Each command produces a separate ROM containing its selected patch set.
+The `verify` command checks the clean source without writing a ROM:
+
+```sh
+python patch.py --fix combined verify "/path/to/Metal Gear Solid (USA).gbc"
 ```
 
 ## Rebuild the patch files
 
-Run this command with the clean source ROM:
+Build both release patch sets for a clean regional source ROM:
 
 ```sh
 python patch.py build "/path/to/Metal Gear Solid (USA).gbc"
 ```
 
-The command recreates both files in `patches/`.
-`changes.json`, `changes-eu.json`, and `changes-jp.json` describe the USA, European, and Japanese patches.
+Build only one selected patch set:
+
+```sh
+python patch.py --fix apc build "/path/to/Metal Gear Solid (USA).gbc"
+python patch.py --fix combined build "/path/to/Metal Gear Solid (USA).gbc"
+```
+
+The default build recreates both sets of regional BPS and IPS files.
+An explicit `--fix` option limits the build to that selection.
+
+| Patch set | Manifests | Build output |
+| --- | --- | --- |
+| APCs | `changes.json`, `changes-eu.json`, `changes-jp.json` | `patches/` |
+| APC + Campbell | `combined/changes-us.json`, `combined/changes-eu.json`, `combined/changes-jp.json` | `combined/patches/` |
+
 Each manifest records the edits, expected original bytes, and source and target hashes.
 The build does not require the disassembly project, an assembler, or game assets from another repository.
+The [Campbell documentation](campbell/README.md) also describes the retained Campbell-only build option.
 
 ## Scope and compatibility
 
-This patch targets the APC graphics and palettes in room `02/04`.
-It also corrects their thermal palette mapping and updates the ROM's global checksum.
-It adds no runtime code, sprite overlays, or scanline palette changes.
+Both corrections change graphics and palette data and update the ROM's global checksum.
+They add no executable code, sprite overlays, or scanline palette changes.
 
-[TECHNICAL.md](TECHNICAL.md) explains the exact edits and palette mapping.
-[VALIDATION.md](VALIDATION.md) records the room comparison and emulator checks.
+| Correction | Technical notes | Validation |
+| --- | --- | --- |
+| APCs | [ROM edits and palette mapping](TECHNICAL.md) | [Room comparisons and emulator checks](VALIDATION.md) |
+| Campbell | [Portrait tiles and palettes](campbell/TECHNICAL.md) | [Intro and gameplay checks](campbell/VALIDATION.md) |
+| Combined builds | Both corrections with one checksum update | [Combined emulator checks](campbell/COMBINED_VALIDATION.md) |
 
-Each patch requires its matching clean regional release.
-Compatibility with other patches has not been tested.
+The APC checks cover normal and thermal rendering and movement in all three regions.
+The Campbell checks cover the USA introduction and gameplay in PyBoy and SameBoy.
+European and Japanese Campbell checks cover the opening scene in PyBoy.
+Combined ROMs passed these checks as well.
+
+Each standalone patch requires its matching clean regional release.
+Other patch combinations have not been tested.
 Physical Game Boy Color hardware has not been tested.
 
 ## Python development
@@ -112,7 +196,7 @@ GitHub Actions checks Python code and formatting for each push and pull request.
 
 ## Credits and license
 
-Patch: Adam Fahy.
+Color corrections: Adam Fahy.
 Original game: Konami.
 
 The [MIT license](LICENSE) covers the patch tools and original documentation.
