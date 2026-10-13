@@ -1,10 +1,10 @@
-# Metal Gear Solid Ghost Babel Tank Color Fix
+# Metal Gear Solid Ghost Babel APC Color Fix
 
-A standalone color correction patch for *Metal Gear Solid* on Game Boy Color, also known as *Metal Gear: Ghost Babel*.
-It fixes mismatched colors on both tanks in the Outer Heaven front yard, area `02`, room `04`.
+This patch corrects the colors of the two armored personnel carriers in Stage 2’s yard outside Galuade fortress.
+It is a standalone color correction patch for *Metal Gear Solid* on Game Boy Color, also known as *Metal Gear: Ghost Babel*.
 The patch corrects the front corners and lower left corners.
 
-The original tiles use container and grass palettes, which produce gray, blue, navy, lime, and olive patches on the tank hulls.
+The original tiles use container and grass palettes, which produce gray, blue, navy, lime, and olive patches on the APC hulls.
 This patch uses the hull's green colors and preserves the surrounding sand.
 Six brown shadow pixels become dark green so all corrected tiles fit the room's available palettes.
 
@@ -16,12 +16,11 @@ The repository contains no game ROM.
 
 ## Comparison
 
-The images below come directly from the original and patched ROMs running in SameBoy.
-Each image retains the native 160 × 144 resolution and the game's HUD.
+The images below show the difference between the original and patched ROMs.
 
 | Original | Patched |
 | --- | --- |
-| ![Original tank colors](images/before.png) | ![Patched tank colors](images/after.png) |
+| ![Original APC colors](images/before.png) | ![Patched APC colors](images/after.png) |
 
 ## Required source ROM
 
@@ -61,7 +60,7 @@ Run these commands from the repository directory:
 
 ```sh
 python patch.py verify "/path/to/Metal Gear Solid (USA).gbc"
-python patch.py apply "/path/to/Metal Gear Solid (USA).gbc" "/path/to/Metal Gear Solid (USA) (Tank Color Fix).gbc"
+python patch.py apply "/path/to/Metal Gear Solid (USA).gbc" "/path/to/Metal Gear Solid (USA) (APC Color Fix).gbc"
 ```
 
 ## Rebuild the patch files
@@ -78,7 +77,7 @@ The build does not require the disassembly project, an assembler, or game assets
 
 ## Scope and compatibility
 
-This patch targets the tank graphics and palettes in room `02/04`.
+This patch targets the APC graphics and palettes in room `02/04`.
 It also corrects their thermal palette mapping and updates the ROM's global checksum.
 It adds no runtime code, sprite overlays, or scanline palette changes.
 
