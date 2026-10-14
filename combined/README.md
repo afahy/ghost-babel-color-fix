@@ -1,6 +1,6 @@
 # Optional APC + Campbell patch set
 
-Version 1.2 includes both the Stage 2 APC correction and Campbell's opening portrait correction.
+Version 1.2.1 includes both the Stage 2 APC correction and Campbell's opening portrait correction.
 The [primary patch set](../README.md#download) contains the APC correction only.
 This optional set adds consistent skin colors and corrected collar and background boundaries to Campbell's portrait.
 
@@ -12,11 +12,11 @@ The original artist's intent remains uncertain; Campbell's correction offers an 
 
 | Region | BPS | IPS |
 | --- | --- | --- |
-| USA | [USA BPS](patches/ghost-babel-color-corrections-us-v1.2.bps) | [USA IPS](patches/ghost-babel-color-corrections-us-v1.2.ips) |
-| Europe | [European BPS](patches/ghost-babel-color-corrections-eu-v1.2.bps) | [European IPS](patches/ghost-babel-color-corrections-eu-v1.2.ips) |
-| Japan | [Japanese BPS](patches/ghost-babel-color-corrections-jp-v1.2.bps) | [Japanese IPS](patches/ghost-babel-color-corrections-jp-v1.2.ips) |
+| USA | [USA BPS](patches/ghost-babel-color-corrections-us-v1.2.1.bps) | [USA IPS](patches/ghost-babel-color-corrections-us-v1.2.1.ips) |
+| Europe | [European BPS](patches/ghost-babel-color-corrections-eu-v1.2.1.bps) | [European IPS](patches/ghost-babel-color-corrections-eu-v1.2.1.ips) |
+| Japan | [Japanese BPS](patches/ghost-babel-color-corrections-jp-v1.2.1.bps) | [Japanese IPS](patches/ghost-babel-color-corrections-jp-v1.2.1.ips) |
 
-[Release downloads](https://github.com/afahy/ghost-babel-color-fix/releases/tag/v1.2.0) include the optional combined archive.
+[Release downloads](https://github.com/afahy/ghost-babel-color-fix/releases/tag/v1.2.1) include the optional combined archive.
 [SHA256SUMS.txt](patches/SHA256SUMS.txt) records the patch file hashes.
 The repository contains no game ROM.
 

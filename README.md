@@ -1,7 +1,7 @@
 # Metal Gear Solid: Ghost Babel Color Corrections
 
 This project provides color corrections for *Metal Gear Solid* on Game Boy Color, also known as *Metal Gear: Ghost Babel*.
-Version 1.2 provides the Stage 2 APC correction and an optional patch set that also corrects Campbell's opening portrait.
+Version 1.2.1 provides the Stage 2 APC correction and an optional patch set that also corrects Campbell's opening portrait.
 The repository contains no game ROM.
 
 ## Corrections
@@ -27,13 +27,13 @@ This correction offers an optional color interpretation.
 
 ## Download
 
-The [version 1.2 release](https://github.com/afahy/ghost-babel-color-fix/releases/tag/v1.2.0) includes two patch sets.
+The [version 1.2.1 release](https://github.com/afahy/ghost-babel-color-fix/releases/tag/v1.2.1) includes two patch sets.
 Each set provides USA, European, and Japanese patches in BPS and IPS formats.
 
 | Patch set | Contents | Download |
 | --- | --- | --- |
-| Primary | APC correction only | [APC archive](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.0/ghost-babel-apc-color-fix-v1.2.zip) |
-| Optional | APC and Campbell corrections | [APC + Campbell archive](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.0/ghost-babel-apc-campbell-color-fixes-v1.2.zip) |
+| Primary | APC correction only | [APC archive](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.1/ghost-babel-apc-color-fix-v1.2.1.zip) |
+| Optional | APC and Campbell corrections | [APC + Campbell archive](https://github.com/afahy/ghost-babel-color-fix/releases/download/v1.2.1/ghost-babel-apc-campbell-color-fixes-v1.2.1.zip) |
 
 The primary set provides a version without Campbell's portrait correction.
 The optional set contains both corrections in each patch.
@@ -43,19 +43,21 @@ Each patch requires a clean ROM; you cannot apply standalone BPS files sequentia
 
 | Region | BPS | IPS |
 | --- | --- | --- |
-| USA | [USA BPS](patches/ghost-babel-apc-color-fix-us-v1.2.bps) | [USA IPS](patches/ghost-babel-apc-color-fix-us-v1.2.ips) |
-| Europe | [European BPS](patches/ghost-babel-apc-color-fix-eu-v1.2.bps) | [European IPS](patches/ghost-babel-apc-color-fix-eu-v1.2.ips) |
-| Japan | [Japanese BPS](patches/ghost-babel-apc-color-fix-jp-v1.2.bps) | [Japanese IPS](patches/ghost-babel-apc-color-fix-jp-v1.2.ips) |
+| USA | [USA BPS](patches/ghost-babel-apc-color-fix-us-v1.2.1.bps) | [USA IPS](patches/ghost-babel-apc-color-fix-us-v1.2.1.ips) |
+| Europe | [European BPS](patches/ghost-babel-apc-color-fix-eu-v1.2.1.bps) | [European IPS](patches/ghost-babel-apc-color-fix-eu-v1.2.1.ips) |
+| Japan | [Japanese BPS](patches/ghost-babel-apc-color-fix-jp-v1.2.1.bps) | [Japanese IPS](patches/ghost-babel-apc-color-fix-jp-v1.2.1.ips) |
 
 ### Optional APC + Campbell patches
 
 | Region | BPS | IPS |
 | --- | --- | --- |
-| USA | [USA BPS](combined/patches/ghost-babel-color-corrections-us-v1.2.bps) | [USA IPS](combined/patches/ghost-babel-color-corrections-us-v1.2.ips) |
-| Europe | [European BPS](combined/patches/ghost-babel-color-corrections-eu-v1.2.bps) | [European IPS](combined/patches/ghost-babel-color-corrections-eu-v1.2.ips) |
-| Japan | [Japanese BPS](combined/patches/ghost-babel-color-corrections-jp-v1.2.bps) | [Japanese IPS](combined/patches/ghost-babel-color-corrections-jp-v1.2.ips) |
+| USA | [USA BPS](combined/patches/ghost-babel-color-corrections-us-v1.2.1.bps) | [USA IPS](combined/patches/ghost-babel-color-corrections-us-v1.2.1.ips) |
+| Europe | [European BPS](combined/patches/ghost-babel-color-corrections-eu-v1.2.1.bps) | [European IPS](combined/patches/ghost-babel-color-corrections-eu-v1.2.1.ips) |
+| Japan | [Japanese BPS](combined/patches/ghost-babel-color-corrections-jp-v1.2.1.bps) | [Japanese IPS](combined/patches/ghost-babel-color-corrections-jp-v1.2.1.ips) |
 
 [Combined patch documentation](combined/README.md) provides target hashes and application details.
+Version 1.2.1 rebuilds the IPS patches so that each record contains a complete edit.
+Its BPS patches and patched ROMs match version 1.2.0.
 The earlier [version 1.1 release](https://github.com/afahy/ghost-babel-color-fix/releases/tag/v1.1.0) contains the same APC correction only.
 
 ## Comparison

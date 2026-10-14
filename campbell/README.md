@@ -7,7 +7,7 @@ Small shading changes let the portrait use ordinary background tiles and palette
 The original artist's intent remains uncertain.
 This patch offers a color interpretation; it does not establish that the original portrait contains a bug.
 
-Version 1.2 includes this correction in the [optional APC + Campbell patch set](../combined/README.md).
+Version 1.2.1 includes this correction in the [optional APC + Campbell patch set](../combined/README.md).
 The [primary APC-only set](../README.md#download) provides a version without Campbell's portrait correction.
 Each combined patch applies both corrections to a clean ROM.
 
@@ -27,9 +27,9 @@ They require a clean source ROM and do not include the APC correction.
 
 | Region | BPS | IPS |
 | --- | --- | --- |
-| USA | [USA BPS](patches/ghost-babel-campbell-color-fix-us-v1.2.bps) | [USA IPS](patches/ghost-babel-campbell-color-fix-us-v1.2.ips) |
-| Europe | [European BPS](patches/ghost-babel-campbell-color-fix-eu-v1.2.bps) | [European IPS](patches/ghost-babel-campbell-color-fix-eu-v1.2.ips) |
-| Japan | [Japanese BPS](patches/ghost-babel-campbell-color-fix-jp-v1.2.bps) | [Japanese IPS](patches/ghost-babel-campbell-color-fix-jp-v1.2.ips) |
+| USA | [USA BPS](patches/ghost-babel-campbell-color-fix-us-v1.2.1.bps) | [USA IPS](patches/ghost-babel-campbell-color-fix-us-v1.2.1.ips) |
+| Europe | [European BPS](patches/ghost-babel-campbell-color-fix-eu-v1.2.1.bps) | [European IPS](patches/ghost-babel-campbell-color-fix-eu-v1.2.1.ips) |
+| Japan | [Japanese BPS](patches/ghost-babel-campbell-color-fix-jp-v1.2.1.bps) | [Japanese IPS](patches/ghost-babel-campbell-color-fix-jp-v1.2.1.ips) |
 
 BPS checks the source ROM checksum.
 IPS does not include a source checksum.
