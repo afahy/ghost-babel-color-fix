@@ -54,6 +54,7 @@ They also run `patch.py` on a small synthetic ROM and check the output of `relea
 These checks require no ROM files.
 GitHub Actions runs all three checks for each pull request and each push to `main`.
 The `ci` job reports the combined result of all checks.
+The `main` branch accepts only commits that passed the `ci` job, so merge changes through pull requests.
 
 ## Fix lint and formatting
 
