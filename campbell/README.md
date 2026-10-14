@@ -7,7 +7,7 @@ Small shading changes let the portrait use ordinary background tiles and palette
 The original artist's intent remains uncertain.
 This patch offers a color interpretation; it does not establish that the original portrait contains a bug.
 
-Version 1.2 includes this correction in the [optional APC + Campbell patch set](../combined/README.md).
+Version 1.2.1 includes this correction in the [optional APC + Campbell patch set](../combined/README.md).
 The [primary APC-only set](../README.md#download) provides a version without Campbell's portrait correction.
 Each combined patch applies both corrections to a clean ROM.
 
@@ -27,9 +27,9 @@ They require a clean source ROM and do not include the APC correction.
 
 | Region | BPS | IPS |
 | --- | --- | --- |
-| USA | [USA BPS](patches/ghost-babel-campbell-color-fix-us-v1.2.bps) | [USA IPS](patches/ghost-babel-campbell-color-fix-us-v1.2.ips) |
-| Europe | [European BPS](patches/ghost-babel-campbell-color-fix-eu-v1.2.bps) | [European IPS](patches/ghost-babel-campbell-color-fix-eu-v1.2.ips) |
-| Japan | [Japanese BPS](patches/ghost-babel-campbell-color-fix-jp-v1.2.bps) | [Japanese IPS](patches/ghost-babel-campbell-color-fix-jp-v1.2.ips) |
+| USA | [USA BPS](patches/ghost-babel-campbell-color-fix-us-v1.2.1.bps) | [USA IPS](patches/ghost-babel-campbell-color-fix-us-v1.2.1.ips) |
+| Europe | [European BPS](patches/ghost-babel-campbell-color-fix-eu-v1.2.1.bps) | [European IPS](patches/ghost-babel-campbell-color-fix-eu-v1.2.1.ips) |
+| Japan | [Japanese BPS](patches/ghost-babel-campbell-color-fix-jp-v1.2.1.bps) | [Japanese IPS](patches/ghost-babel-campbell-color-fix-jp-v1.2.1.ips) |
 
 BPS checks the source ROM checksum.
 IPS does not include a source checksum.
@@ -44,7 +44,7 @@ Select the patch that matches your dump's region.
 | --- | --- | --- | --- | --- |
 | USA | Metal Gear Solid (USA) | 2,097,152 bytes | `04b0c5d6` | `f6dd1b1e5747412b9e5f25376c972d5a` |
 | Europe | Metal Gear Solid (Europe) (En,Fr,De,Es,It) | 4,194,304 bytes | `16796957` | `7971c95ad9745fe20df52e03cd52f636` |
-| Japan | Metal Gear Ghost Babel (Japan) | 2,097,152 bytes | `7831f84d` | `7830328f323bd77d52a6985b1b10031f` |
+| Japan | Metal Gear - Ghost Babel (Japan) | 2,097,152 bytes | `7831f84d` | `7830328f323bd77d52a6985b1b10031f` |
 
 ## Apply the patch
 
@@ -87,12 +87,12 @@ One skin pixel at `(48, 44)` uses the darker skin shade to preserve that separat
 
 [TECHNICAL.md](TECHNICAL.md) describes the data changes.
 [VALIDATION.md](VALIDATION.md) records the current test status.
-Physical Game Boy Color hardware has not been tested.
+Physical Game Boy Color hardware remains untested.
 
 The version 1.2 combined ROMs passed the checks in [COMBINED_VALIDATION.md](COMBINED_VALIDATION.md).
 The standalone patch files require clean source ROMs.
 The standalone BPS patches reject a ROM containing the other correction.
-Other patch combinations have not been tested.
+Other patch combinations remain untested.
 
 The [MIT license](../LICENSE) covers the patch tools and original documentation.
 It grants no rights to the original game or its graphics.

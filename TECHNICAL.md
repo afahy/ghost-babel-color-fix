@@ -4,7 +4,7 @@ These notes describe the released APC correction.
 [Campbell's technical notes](campbell/TECHNICAL.md) describe the optional portrait correction.
 [Combined validation](campbell/COMBINED_VALIDATION.md) describes ROMs containing both corrections.
 
-Version 1.2 retains the APC background correction first released in version 1.1.
+Version 1.2.1 retains the APC background correction first released in version 1.0.
 It changes background data for both APCs in area `02`, room `04`.
 Each regional manifest identifies its clean source ROM.
 The USA and Japanese ROMs remain 2,097,152 bytes long.

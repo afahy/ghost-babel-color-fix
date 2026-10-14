@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "name": "Ghost Babel Campbell portrait color correction",
-  "version": "1.2",
+  "version": "1.2.1",
   "region": "USA",
-  "patch_name": "ghost-babel-campbell-color-fix-us-v1.2",
+  "patch_name": "ghost-babel-campbell-color-fix-us-v1.2.1",
   "source_filename": "Metal Gear Solid (USA).gbc",
   "source": {
     "size": 2097152,

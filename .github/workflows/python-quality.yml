@@ -24,3 +24,16 @@ jobs:
         run: python -m ruff check .
       - name: Check Python formatting
         run: python -m ruff format --check .
+
+  tests:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.13"]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Check the tool, manifests, patches, and checksum lists
+        run: python -m unittest -v

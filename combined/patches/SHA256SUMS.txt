@@ -1,6 +1,6 @@
-fb0a552dcc83a64c6b5fa02f82c7ecf96714758f285d183f722aa2b490ad51f7  ghost-babel-color-corrections-us-v1.2.bps
-6b3d399eb52379285af76e4a7ca865a650c95a2b1631ebc6c8ce42f29f4d4e5e  ghost-babel-color-corrections-us-v1.2.ips
-5aeaf1b9ec5068c4365e4dc2163cb4743f498b69bc34f8f6ea1b0772752407af  ghost-babel-color-corrections-eu-v1.2.bps
-5b3edc35124a216515e27953425c4423801a959018481f25eccff945ba1df562  ghost-babel-color-corrections-eu-v1.2.ips
-28abed7f69ec045ea92732c4457f74afe01029e90d3e2ea6d1522bb952b64a6b  ghost-babel-color-corrections-jp-v1.2.bps
-683df3f9e59c0aaf0a3e87d791792fc29933420e388cc3c936a0922d8ba9c4dd  ghost-babel-color-corrections-jp-v1.2.ips
+fb0a552dcc83a64c6b5fa02f82c7ecf96714758f285d183f722aa2b490ad51f7  ghost-babel-color-corrections-us-v1.2.1.bps
+eafe9b32baebcf6b6754572ba0f3ea3f6ee66f3cf25967b13642f92cd21f6cec  ghost-babel-color-corrections-us-v1.2.1.ips
+5aeaf1b9ec5068c4365e4dc2163cb4743f498b69bc34f8f6ea1b0772752407af  ghost-babel-color-corrections-eu-v1.2.1.bps
+09c215d00b84d3fbd7b3ccb428ad080f3f505a7621ba31ef11fd3ad4942a45ec  ghost-babel-color-corrections-eu-v1.2.1.ips
+28abed7f69ec045ea92732c4457f74afe01029e90d3e2ea6d1522bb952b64a6b  ghost-babel-color-corrections-jp-v1.2.1.bps
+6d95e900f91db5580065a624ec1cc6170f72072cbbf38b08de82f08d89ad814f  ghost-babel-color-corrections-jp-v1.2.1.ips

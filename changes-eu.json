@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "name": "Ghost Babel APC color fix",
-  "version": "1.2",
-  "region": "eu",
-  "patch_name": "ghost-babel-apc-color-fix-eu-v1.2",
+  "version": "1.2.1",
+  "region": "Europe",
+  "patch_name": "ghost-babel-apc-color-fix-eu-v1.2.1",
   "source_filename": "Metal Gear Solid (Europe) (En,Fr,De,Es,It).gbc",
   "source": {
     "size": 4194304,

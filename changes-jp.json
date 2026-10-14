@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "name": "Ghost Babel APC color fix",
-  "version": "1.2",
-  "region": "jp",
-  "patch_name": "ghost-babel-apc-color-fix-jp-v1.2",
+  "version": "1.2.1",
+  "region": "Japan",
+  "patch_name": "ghost-babel-apc-color-fix-jp-v1.2.1",
   "source_filename": "Metal Gear - Ghost Babel (Japan).gbc",
   "source": {
     "size": 2097152,

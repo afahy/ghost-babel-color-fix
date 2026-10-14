@@ -2,7 +2,7 @@
 
 Validation date: 2026-10-13.
 The version 1.2 combined ROMs passed the repeated validation checks below.
-Physical Game Boy Color hardware has not been tested.
+Physical Game Boy Color hardware remains untested.
 
 We repeated the [APC validation process](../VALIDATION.md) on the USA, European, and Japanese combined ROMs.
 Room comparisons, normal and thermal rendering, and movement passed in PyBoy and SameBoy.

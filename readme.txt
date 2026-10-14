@@ -1,6 +1,6 @@
 METAL GEAR SOLID: GHOST BABEL COLOR CORRECTIONS
-Version 1.2.0
-October 13, 2026
+Version 1.2.1
+October 14, 2026
 Author: Adam Fahy
 
 This project provides color corrections for Metal Gear Solid on Game Boy Color, also known as Metal Gear: Ghost Babel.
@@ -23,9 +23,9 @@ Both corrections change graphics and palette data without changing executable co
 
 PATCH SELECTION
 
-Version 1.2.0 includes two release archives:
-Primary APC-only: ghost-babel-apc-color-fix-v1.2.zip
-Optional APC + Campbell: ghost-babel-apc-campbell-color-fixes-v1.2.zip
+Version 1.2.1 includes two release archives:
+Primary APC-only: ghost-babel-apc-color-fix-v1.2.1.zip
+Optional APC + Campbell: ghost-babel-apc-campbell-color-fixes-v1.2.1.zip
 
 Each archive includes USA, European, and Japanese patches in BPS and IPS formats.
 The filenames contain us, eu, or jp.
@@ -36,15 +36,16 @@ Use the BPS patch that matches your chosen patch set and clean ROM dump.
 The BPS patch checks the source checksum.
 The IPS format does not include a source checksum.
 Each patch requires a clean source ROM.
-The standalone BPS files cannot be applied sequentially.
+You cannot apply the standalone BPS files sequentially.
 
 Primary APC-only patches are in patches/.
 Optional combined patches are in combined/patches/.
 combined/README.md describes the optional set and its target hashes.
 campbell/README.md describes the portrait correction and retained Campbell-only tooling.
 The earlier version 1.1.0 release contains the same APC correction only.
+Version 1.2.1 rebuilds the IPS files; its BPS files and target ROMs match version 1.2.0.
 
-SUPPORTED SOURCES AND VERSION 1.2 TARGETS
+SUPPORTED SOURCES AND VERSION 1.2.1 TARGETS
 
 Both patch sets use the clean source ROMs listed below.
 The primary APC-only target bytes and hashes match version 1.1.
@@ -58,8 +59,8 @@ Source MD5: f6dd1b1e5747412b9e5f25376c972d5a
 Primary target CRC32: a3bd2abc
 Primary target SHA-256: 245ea9cda899fe042d26a68a9429e789d15fddbcf38e8dbe7ade43c59db2d525
 Optional combined target SHA-256: cfba270d86cec5185bfbd0ca6d600e39e5224f593aed59a790aaee78900274ce
-Primary BPS: patches/ghost-babel-apc-color-fix-us-v1.2.bps
-Optional BPS: combined/patches/ghost-babel-color-corrections-us-v1.2.bps
+Primary BPS: patches/ghost-babel-apc-color-fix-us-v1.2.1.bps
+Optional BPS: combined/patches/ghost-babel-color-corrections-us-v1.2.1.bps
 
 EUROPE
 Source: Metal Gear Solid (Europe) (En,Fr,De,Es,It).gbc
@@ -69,8 +70,8 @@ Source MD5: 7971c95ad9745fe20df52e03cd52f636
 Primary target CRC32: 4bc7796e
 Primary target SHA-256: 9fb2e85c813bff77e76b317f7f94b9e7b49e088cc4d7255362bbdd317494bbdf
 Optional combined target SHA-256: 97e01085822bce72f9e394aa73464198623c2193bbdf3e73d478990b9de9a5b9
-Primary BPS: patches/ghost-babel-apc-color-fix-eu-v1.2.bps
-Optional BPS: combined/patches/ghost-babel-color-corrections-eu-v1.2.bps
+Primary BPS: patches/ghost-babel-apc-color-fix-eu-v1.2.1.bps
+Optional BPS: combined/patches/ghost-babel-color-corrections-eu-v1.2.1.bps
 
 JAPAN
 Source: Metal Gear - Ghost Babel (Japan).gbc
@@ -80,8 +81,8 @@ Source MD5: 7830328f323bd77d52a6985b1b10031f
 Primary target CRC32: 80fedc50
 Primary target SHA-256: 76407a78fb64b2c1648806a66f8439ec7b1aa4bb783df628d8577bbccda71025
 Optional combined target SHA-256: 88e66f0e2340f4baa7f1991cb4344375cde74f672b9ed9464911680cb352f801
-Primary BPS: patches/ghost-babel-apc-color-fix-jp-v1.2.bps
-Optional BPS: combined/patches/ghost-babel-color-corrections-jp-v1.2.bps
+Primary BPS: patches/ghost-babel-apc-color-fix-jp-v1.2.1.bps
+Optional BPS: combined/patches/ghost-babel-color-corrections-jp-v1.2.1.bps
 
 Each listed BPS file has an IPS file with the same basename.
 
@@ -126,15 +127,17 @@ Build one selected patch set:
 python patch.py --fix apc build SOURCE_ROM
 python patch.py --fix combined build SOURCE_ROM
 
-Place --fix before the verify, apply, or build subcommand.
+Place --fix before or after the verify, apply, or build subcommand.
 The default build writes APC-only files to patches/ and optional combined files to combined/patches/.
-Each manifest records the edits and expected source and target hashes.
+Each manifest records the expected source and target hashes.
+The APC and Campbell manifests record the edits; the combined manifests reuse them.
 The build needs no assembler, disassembly project, or separate game assets.
 
 SCREENSHOTS
 
 The images show the difference between the original and patched ROMs.
 The images/ directory contains the comparisons.
+
 before.png and after.png show the USA APC correction.
 eu-before.png and eu-after.png show the European APC correction.
 jp-before.png and jp-after.png show the Japanese APC correction.
@@ -166,7 +169,7 @@ campbell/COMBINED_VALIDATION.md records the combined checks and their limits.
 SOURCE AND UPDATES
 
 Repository: https://github.com/afahy/ghost-babel-color-fix
-Release: https://github.com/afahy/ghost-babel-color-fix/releases/tag/v1.2.0
+Release: https://github.com/afahy/ghost-babel-color-fix/releases/tag/v1.2.1
 Releases: https://github.com/afahy/ghost-babel-color-fix/releases
 
 Ruff provides Python code checks and formatting.

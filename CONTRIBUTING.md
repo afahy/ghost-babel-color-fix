@@ -13,7 +13,7 @@ APC patches are in `patches/`; Campbell patches are in `campbell/patches/`; comb
 
 All patch selections require clean regional ROMs.
 Combined ROMs passed the checks in [COMBINED_VALIDATION.md](campbell/COMBINED_VALIDATION.md).
-The standalone BPS patches cannot be applied sequentially.
+You cannot apply the standalone BPS patches sequentially.
 
 `patch.py` supports Python 3.8 or later and uses only the standard library.
 The development environment adds [Ruff](https://docs.astral.sh/ruff/) for lint checks and formatting.
@@ -42,8 +42,16 @@ Run the formatting check:
 python -m ruff format --check .
 ```
 
+Run the tests:
+
+```sh
+python -m unittest
+```
+
+The tests compare the committed manifests, patch files, and `SHA256SUMS.txt` files.
+
 These checks require no ROM files.
-GitHub Actions runs both checks for pushes and pull requests.
+GitHub Actions runs all three checks for pushes and pull requests.
 
 ## Fix lint and formatting
 
@@ -68,7 +76,7 @@ Keep compatibility with Python 3.8.
 ## Verify patch changes
 
 Use your own supported clean ROM dumps when a change affects patch behavior.
-Place `--fix` before the subcommand.
+Place `--fix` before or after the subcommand.
 Select `--fix apc`, `--fix campbell`, or `--fix combined`.
 The `apply` and `verify` commands default to `apc`.
 The `build` command builds APC and combined patches by default.
@@ -98,7 +106,9 @@ python patch.py --fix combined build "/path/to/Metal Gear Solid (USA).gbc"
 
 Each command writes that region's BPS and IPS files into the selected correction's patch directory.
 With `--output-dir`, the command writes all selected patch files into that directory.
-Each manifest records the expected source hashes, target hashes, and byte changes.
+The command also updates `SHA256SUMS.txt` in the output directory.
+Each manifest records the expected source hashes and target hashes.
+The APC and Campbell manifests record the byte changes; the combined manifests reuse them.
 Keep these records consistent with the generated patches.
 
 Run the relevant emulator checks when a change affects graphics or palette data.
