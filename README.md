@@ -202,9 +202,9 @@ Physical Game Boy Color hardware remains untested.
 
 ## Python development
 
-[CONTRIBUTING.md](CONTRIBUTING.md) explains the Ruff code checks and formatter.
-GitHub Actions checks Python code and formatting for each push and pull request.
-It also runs the ROM-free tests on Python 3.8 and 3.13.
+[CONTRIBUTING.md](CONTRIBUTING.md) explains the Ruff checks, the tests, and the release steps.
+GitHub Actions runs the Ruff checks and the ROM-free tests for each pull request and each push to `main`.
+The tests run on Linux with Python 3.8 and 3.13, and on Windows and macOS with Python 3.13.
 
 ## Credits and license
 

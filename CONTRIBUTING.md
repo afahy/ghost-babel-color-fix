@@ -48,10 +48,12 @@ Run the tests:
 python -m unittest
 ```
 
-The tests compare the committed manifests, patch files, and `SHA256SUMS.txt` files.
+The tests compare the committed manifests, patch files, documents, and `SHA256SUMS.txt` files.
+They also run `patch.py` on a small synthetic ROM and check the output of `release.py`.
 
 These checks require no ROM files.
-GitHub Actions runs all three checks for pushes and pull requests.
+GitHub Actions runs all three checks for each pull request and each push to `main`.
+The `ci` job reports the combined result of all checks.
 
 ## Fix lint and formatting
 
@@ -117,3 +119,23 @@ The [APC validation](VALIDATION.md) and [Campbell validation](campbell/VALIDATIO
 Physical Game Boy Color hardware remains untested.
 
 Keep ROMs and emulator state files outside commits.
+
+## Publish a release
+
+1. Set the new version and patch names in all nine manifests.
+2. Delete the old patch files and the three `SHA256SUMS.txt` files.
+3. Rebuild the patch files for each region with your clean ROMs.
+4. Update the version, date, file names, and links in the documents.
+5. Run the patch checks above with your clean ROMs.
+6. Merge the changes into `main` through a pull request.
+7. Create an annotated tag, for example `git tag -a v1.2.2 -m "Ghost Babel color corrections v1.2.2"`.
+8. Push the tag, for example `git push origin v1.2.2`.
+9. Wait for the Release workflow to create a draft release.
+10. Write the release notes in the draft.
+11. Check the draft assets, and then publish the release.
+
+The Release workflow runs all CI checks first.
+It stops when the tag does not match the manifest version.
+It attaches both archives, the primary and combined patch files, and the release checksum list.
+A manual run of the workflow builds the same assets as an artifact and creates no release.
+Run `python release.py dist` to build the same assets locally.
