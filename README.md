@@ -37,7 +37,7 @@ Each set provides USA, European, and Japanese patches in BPS and IPS formats.
 
 The primary set provides a version without Campbell's portrait correction.
 The optional set contains both corrections in each patch.
-Each patch requires a clean ROM; standalone BPS files cannot be applied sequentially.
+Each patch requires a clean ROM; you cannot apply standalone BPS files sequentially.
 
 ### Primary APC-only patches
 
@@ -93,7 +93,7 @@ Select the primary or optional patch set and your dump's region.
 | --- | --- | --- | --- | --- |
 | USA | Metal Gear Solid (USA) | 2,097,152 bytes | `04b0c5d6` | `f6dd1b1e5747412b9e5f25376c972d5a` |
 | Europe | Metal Gear Solid (Europe) (En,Fr,De,Es,It) | 4,194,304 bytes | `16796957` | `7971c95ad9745fe20df52e03cd52f636` |
-| Japan | Metal Gear Ghost Babel (Japan) | 2,097,152 bytes | `7831f84d` | `7830328f323bd77d52a6985b1b10031f` |
+| Japan | Metal Gear - Ghost Babel (Japan) | 2,097,152 bytes | `7831f84d` | `7830328f323bd77d52a6985b1b10031f` |
 
 The USA, European, and Japanese patch filenames contain `us`, `eu`, and `jp`, respectively.
 The manifests contain additional source and target hashes.
@@ -173,7 +173,8 @@ An explicit `--fix` option limits the build to that selection.
 | APCs | `changes.json`, `changes-eu.json`, `changes-jp.json` | `patches/` |
 | APC + Campbell | `combined/changes-us.json`, `combined/changes-eu.json`, `combined/changes-jp.json` | `combined/patches/` |
 
-Each manifest records the edits, expected original bytes, and source and target hashes.
+Each manifest records the source and target hashes.
+The APC and Campbell manifests record the edits and expected original bytes; the combined manifests reuse those edits.
 The build does not require the disassembly project, an assembler, or game assets from another repository.
 The [Campbell documentation](campbell/README.md) also describes the retained Campbell-only build option.
 
@@ -194,13 +195,14 @@ European and Japanese Campbell checks cover the opening scene in PyBoy.
 Combined ROMs passed these checks as well.
 
 Each standalone patch requires its matching clean regional release.
-Other patch combinations have not been tested.
-Physical Game Boy Color hardware has not been tested.
+Other patch combinations remain untested.
+Physical Game Boy Color hardware remains untested.
 
 ## Python development
 
 [CONTRIBUTING.md](CONTRIBUTING.md) explains the Ruff code checks and formatter.
 GitHub Actions checks Python code and formatting for each push and pull request.
+It also runs the ROM-free tests on Python 3.8 and 3.13.
 
 ## Credits and license
 

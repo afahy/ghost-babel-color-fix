@@ -36,7 +36,7 @@ Use the BPS patch that matches your chosen patch set and clean ROM dump.
 The BPS patch checks the source checksum.
 The IPS format does not include a source checksum.
 Each patch requires a clean source ROM.
-The standalone BPS files cannot be applied sequentially.
+You cannot apply the standalone BPS files sequentially.
 
 Primary APC-only patches are in patches/.
 Optional combined patches are in combined/patches/.
@@ -126,15 +126,17 @@ Build one selected patch set:
 python patch.py --fix apc build SOURCE_ROM
 python patch.py --fix combined build SOURCE_ROM
 
-Place --fix before the verify, apply, or build subcommand.
+Place --fix before or after the verify, apply, or build subcommand.
 The default build writes APC-only files to patches/ and optional combined files to combined/patches/.
-Each manifest records the edits and expected source and target hashes.
+Each manifest records the expected source and target hashes.
+The APC and Campbell manifests record the edits; the combined manifests reuse them.
 The build needs no assembler, disassembly project, or separate game assets.
 
 SCREENSHOTS
 
 The images show the difference between the original and patched ROMs.
 The images/ directory contains the comparisons.
+
 before.png and after.png show the USA APC correction.
 eu-before.png and eu-after.png show the European APC correction.
 jp-before.png and jp-after.png show the Japanese APC correction.

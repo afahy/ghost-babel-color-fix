@@ -44,7 +44,7 @@ Select the patch that matches your dump's region.
 | --- | --- | --- | --- | --- |
 | USA | Metal Gear Solid (USA) | 2,097,152 bytes | `04b0c5d6` | `f6dd1b1e5747412b9e5f25376c972d5a` |
 | Europe | Metal Gear Solid (Europe) (En,Fr,De,Es,It) | 4,194,304 bytes | `16796957` | `7971c95ad9745fe20df52e03cd52f636` |
-| Japan | Metal Gear Ghost Babel (Japan) | 2,097,152 bytes | `7831f84d` | `7830328f323bd77d52a6985b1b10031f` |
+| Japan | Metal Gear - Ghost Babel (Japan) | 2,097,152 bytes | `7831f84d` | `7830328f323bd77d52a6985b1b10031f` |
 
 ## Apply the patch
 
@@ -87,12 +87,12 @@ One skin pixel at `(48, 44)` uses the darker skin shade to preserve that separat
 
 [TECHNICAL.md](TECHNICAL.md) describes the data changes.
 [VALIDATION.md](VALIDATION.md) records the current test status.
-Physical Game Boy Color hardware has not been tested.
+Physical Game Boy Color hardware remains untested.
 
 The version 1.2 combined ROMs passed the checks in [COMBINED_VALIDATION.md](COMBINED_VALIDATION.md).
 The standalone patch files require clean source ROMs.
 The standalone BPS patches reject a ROM containing the other correction.
-Other patch combinations have not been tested.
+Other patch combinations remain untested.
 
 The [MIT license](../LICENSE) covers the patch tools and original documentation.
 It grants no rights to the original game or its graphics.

@@ -4,7 +4,7 @@ Validation date: 2026-10-13.
 This report covers the Campbell portrait correction included in the optional APC + Campbell patch set.
 The USA ROM passed introduction and gameplay checks in PyBoy and SameBoy.
 European and Japanese ROMs passed shorter PyBoy opening-scene checks.
-Physical Game Boy Color hardware has not been tested.
+Physical Game Boy Color hardware remains untested.
 
 ## ROM identities
 
@@ -58,7 +58,7 @@ These results do not establish identical instruction timing or random-number sta
 | Snake, dialogue, and sprite attributes | Unchanged | Unchanged |
 
 These regional checks did not repeat the complete introduction and gameplay tests.
-SameBoy regional tests and physical hardware tests have not been performed.
+We have not performed SameBoy regional tests or physical hardware tests.
 
 ## ROM screenshots
 

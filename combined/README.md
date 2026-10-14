@@ -79,7 +79,7 @@ python patch.py --fix combined build "/path/to/Metal Gear Solid (USA).gbc"
 
 ## Technical details and validation
 
-The combined manifests contain all edits for both corrections and one global checksum update.
+The tool builds each combined edit list from the APC and Campbell manifests and computes one global checksum update.
 The edit ranges for the two corrections do not overlap, except for the global checksum.
 Each combined ROM changes 2,566 bytes and preserves its original size.
 The patch changes no executable instructions.
