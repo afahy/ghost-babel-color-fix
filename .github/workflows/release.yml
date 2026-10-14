@@ -1,6 +1,6 @@
 name: Release
 
-# A version tag creates a draft release. A manual run only uploads the assets as an artifact.
+# A pushed version tag creates a draft release. A manual run only uploads the assets as an artifact.
 on:
   push:
     tags: ["v*"]
@@ -34,13 +34,22 @@ jobs:
           name: release-assets
           path: dist/
           if-no-files-found: error
-      - name: Create a draft release
-        if: github.ref_type == 'tag'
+      # A rerun replaces the assets of an existing draft, but never changes a published release.
+      - name: Create or update the draft release
+        if: github.event_name == 'push' && github.ref_type == 'tag'
         env:
           GH_TOKEN: ${{ github.token }}
           TAG: ${{ github.ref_name }}
         run: |
-          gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --draft --verify-tag \
-            --title "Ghost Babel Color Corrections $TAG" \
-            --notes "The release workflow created this draft from $TAG. Write the release notes, check the assets, and then publish." \
-            dist/*
+          if draft=$(gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json isDraft --jq .isDraft 2>/dev/null); then
+            if [ "$draft" != true ]; then
+              echo "Release $TAG is already published."
+              exit 1
+            fi
+            gh release upload "$TAG" --repo "$GITHUB_REPOSITORY" --clobber dist/*
+          else
+            gh release create "$TAG" --repo "$GITHUB_REPOSITORY" --draft --verify-tag \
+              --title "Ghost Babel Color Corrections $TAG" \
+              --notes "The release workflow created this draft from $TAG. Write the release notes, check the assets, and then publish." \
+              dist/*
+          fi

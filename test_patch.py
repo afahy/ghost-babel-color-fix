@@ -22,6 +22,8 @@ import release
 FIXES = ("apc", "campbell", "combined")
 PATCH_NAME = re.compile(r"ghost-babel-[a-z-]+-v\d+(?:\.\d+)*\.(?:bps|ips)")
 ARCHIVE_NAME = re.compile(r"ghost-babel-[a-z-]+-v\d+(?:\.\d+)*\.zip")
+RELEASE_TAG = re.compile(r"releases/tag/(v\d+(?:\.\d+)*)")
+ARCHIVE_DOWNLOAD = re.compile(r"releases/download/(v\d+(?:\.\d+)*)/[^)\s]+\.zip")
 
 
 def manifests(fix):
@@ -376,6 +378,15 @@ class ManifestRuleTests(unittest.TestCase):
                     self.assertIn(name, patch_files)
                 for name in ARCHIVE_NAME.findall(text):
                     self.assertTrue(name.endswith(f"-v{version}.zip"), name)
+                for tag in ARCHIVE_DOWNLOAD.findall(text):
+                    self.assertEqual(tag, f"v{version}")
+        for name in ("README.md", "readme.txt", "combined/README.md"):
+            text = (patch.ROOT / name).read_text(encoding="utf-8")
+            with self.subTest(release_link=name):
+                self.assertIn(f"releases/tag/v{version}", text)
+                if name != "README.md":
+                    # README.md also links an earlier release on purpose.
+                    self.assertEqual(set(RELEASE_TAG.findall(text)), {f"v{version}"})
 
     def test_regions_share_edits(self):
         for fix in ("apc", "campbell"):
